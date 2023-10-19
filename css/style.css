@@ -1,0 +1,76 @@
+@font-face {
+    font-family: robotomed;
+    src: url(Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: robotoreg;
+    src: url(Roboto-Regular.ttf);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: robotoreg;
+}
+body{
+    background-image: url(../media/fondo.jpg);
+    background-size: cover;
+}
+header{
+    background-color: rgba(0, 0, 255, 0.062);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header img{
+    height: 50px;
+    margin-left: 20px;
+}
+.nav{
+    height: 70px;
+    padding-right: 20px;
+    align-items: center;
+}
+.nav-item{
+    margin-left: 20px;
+}
+.nav a{
+    font-size: 20px;
+    color: white;
+}
+.nav a:hover{
+    color: yellow;
+}
+.nav .active{
+    color: yellow;
+}
+.boxprod{
+    justify-items: center;
+    margin: 0px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.card{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.904);
+}
+.card figure{
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 0;
+    
+}
+.producto{
+    height: 250px;
+    object-fit: contain;
+    margin: 20px 0px;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
