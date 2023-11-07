@@ -203,8 +203,8 @@ let validarProdcuto = function (producto) {
 //CARRITO
 function ProcedureCarrito() {
     ArrCarrito.forEach(x =>{
-        if(x.if > 3000)
-        console.log(x.nombre + " x" + x.cantidad + "   $" + x.precio);
+        if(x.id > 3000)
+        console.log( x.nombre + " x" + x.cantidad + "   $" + x.precio);
         else{
             console.log(x.nombre + "   $" + x.precio);
         }
