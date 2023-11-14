@@ -5,7 +5,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="js/main.js" defer></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/cartservice.js" defer></script>
 </head>
 
 <body>
@@ -21,78 +23,37 @@
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Asociate</a>
             </li>
+            <li class="nav-item">
+                <a href="" class="nav-link"><img src="../media/carrito.png" alt=""></a>
+            </li>
         </ul>
     </header>
     <main>
-        <div class="boxprod">
-            <div class="card" style="width: 18rem;">
-                <figure>
-                    <img src="../media/remsuplente.webp" class="card-img-top producto" alt="">
-                </figure>
-                <div class="card-body">
-                    <h5 class="card-title">Camiseta alternativa</h5>
-                    <p class="card-text mb-1">$20.000</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <figure>
-                    <img src="../media/remeratitular.png" class="card-img-top producto" alt="">
-                </figure>
-                <div class="card-body">
-                    <h5 class="card-title">Camiseta titular</h5>
-                    <p class="card-text mb-1">$20.000</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <figure>
-                    <img src="../media/shortazul.jpg" class="card-img-top producto" alt="">
-                </figure>
-                <div class="card-body">
-                    <h5 class="card-title">Short azul</h5>
-                    <p class="card-text mb-1">$10.000</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <figure>
-                    <img src="../media/buzoazul.jpg" class="card-img-top producto" alt="">
-                </figure>
-                <div class="card-body">
-                    <h5 class="card-title">Buzo entrenamiento</h5>
-                    <p class="card-text mb-1">$22.000</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <figure>
-                    <img src="../media/camperonazul.jpg" class="card-img-top producto" alt="">
-                </figure>
-                <div class="card-body">
-                    <h5 class="card-title">Camperon azul</h5>
-                    <p class="card-text mb-1">$50.000</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <figure>
-                    <img src="../media/gorra89.jpg" class="card-img-top producto" alt="">
-                </figure>
-                <div class="card-body">
-                    <h5 class="card-title">Visera 89</h5>
-                    <p class="card-text mb-1">$5.000</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <figure>
-                    <img src="../media/yerbazuc.webp" class="card-img-top producto" alt="">
-                </figure>
-                <div class="card-body">
-                    <h5 class="card-title">Yerbera y azucarera</h5>
-                    <p class="card-text mb-1">$4.700</p>
-                    <a href="#" class="btn btn-primary">Comprar</a>
+        <section id="boxprod">
+
+        </section>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title fs-5" id="staticBackdropLabel"></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <figure>
+                            <img src="../media/buzoazul.jpg" alt="" class="modal-img">
+                        </figure>
+                        <div class="modal-contain">
+                            <h4>Remera</h4>
+                            <p>cantidad</p>
+                            <input type="number" value="1" max="3" min="1" id="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Añadir al carrito</button>
+                    </div>
                 </div>
             </div>
         </div>

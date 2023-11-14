@@ -31,6 +31,10 @@ header img{
     padding-right: 20px;
     align-items: center;
 }
+.nav img{
+    margin: 0;
+    height: 40px;
+}
 .nav-item{
     margin-left: 20px;
 }
@@ -44,19 +48,20 @@ header img{
 .nav .active{
     color: yellow;
 }
-.boxprod{
+#boxprod{
     justify-items: center;
     margin: 0px 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 .card{
+    width: 18rem;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: fit-content;
-    background-color: rgba(255, 255, 255, 0.904);
+    background-color: rgba(255, 255, 255, 0.815);
 }
 .card figure{
     height: fit-content;
@@ -73,4 +78,15 @@ header img{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.btn{
+    height: fit-content;
+}
+.modal-img{
+    height: 200px;
+    margin-right: 20px;
+}
+.modal-body{
+    display: flex;
+
 }
