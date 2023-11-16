@@ -81,15 +81,15 @@ const ArrProductos = [
         nombre: "Short titular",
         precio: 12000,
         tipo: "pantalon",
-        src:"../media/shortitular.jpg"
+        src: "../media/shortitular.jpg"
     },
     {
         id: 2013,
         nombre: "Short suplente",
         precio: 12000,
         tipo: "pantalon",
-        src:"../media/shortsuplente.jpg"
-    }, 
+        src: "../media/shortsuplente.jpg"
+    },
     {
         id: 2014,
         nombre: "Visera blanca",
@@ -104,5 +104,33 @@ const ArrProductos = [
         tipo: "accesorios",
         src: "../media/pilusoamarillo.jpg"
     },
+]
+
+
+const ArrEntradas = [
+    {
+        id: "3001",
+        nombre: "Platea Cordiviola",
+        precio: 6600,
+        soloSocios: false
+    },
+    {
+        id: "3002",
+        nombre: "Platea Regatas",
+        precio: 5900,
+        soloSocios: false
+    },
+    {
+        id: "3003",
+        nombre: "Popular Genova",
+        precio: 0,
+        soloSocios: true
+    },
+    {
+        id: "3004",
+        nombre: "Popular Regatas",
+        precio: 0,
+        soloSocios: true
+    }
 ]
 

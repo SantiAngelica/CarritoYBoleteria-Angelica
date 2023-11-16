@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="/js/products.js"></script>
-    <script src="/js/app.js" defer></script>
+    <script src="/js/db.js"></script>
+    <script src="/js/entradas.js" defer></script>
     <script src="/js/cartservice.js" defer></script>
 </head>
 
@@ -32,9 +32,62 @@
         </ul>
     </header>
     <main>
-        <div class="platea"></div>
+        <section id="boxentradas">
+            
+        </section>
+
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="exampleModalLabel"></h2>
+                        <button type="button" class="btn-close cerrar-modal-entradas" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body modalentradas">
+                        <div class="modal-contain modalentradas">
+                            <h3 class="modal-title fs-5 mb-3"><span id="staticBackdropLabel"></span></h3>
+                            <form action="" id="form-modal" class="mb-2">
+                                <input type="text" placeholder="Numero de socio" id="socio-check"></input>
+                                <input type="text" placeholder="DNI" id="dni-check"></input>
+                                <div class="box-selec mb-3">
+                                    <span class="minus">-</span>
+                                    <span class="num">01</span>
+                                    <span class="plus">+</span>
+                                </div>
+                                <input type="submit" value="enviar" class="btn boton-check">
+                            </form>
+                            <div class="alerta">
+                                <p id="aprobed" class="mb-0">
+
+                                </p>
+                                <p id="modal-cant" class="mb-0">
+                                    <p id="modal-nombre" class="mb-0">
+
+                                    </p>
+                                </p>
+                                <p id="modal-precio" class="mb-0">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary cerrar-modal-entradas"
+                            data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary " id="btn-añadir-entrada"
+                            data-bs-dismiss="modal">Añadir entrada al
+                            carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

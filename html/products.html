@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="/js/products.js"></script>
+    <script src="/js/db.js"></script>
     <script src="/js/app.js" defer></script>
     <script src="/js/cartservice.js" defer></script>
 </head>
@@ -28,7 +28,7 @@
             </li>
         </ul>
     </header>
-    <main>
+    <main class="mb-5">
         <section id="boxprod">
 
         </section>
@@ -37,22 +37,25 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title fs-5" id="staticBackdropLabel"></h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close cerrar-modal" data-bs-dismiss="modal" aria-label="Close" ></button>
                     </div>
                     <div class="modal-body">
                         <figure>
-                            <img src="../media/buzoazul.jpg" alt="" class="modal-img">
+                            <img src="../media/buzoazul.jpg" alt="" class="modal-img" id="modal-img">
                         </figure>
                         <div class="modal-contain">
-                            <h4>Remera</h4>
-                            <p>cantidad</p>
-                            <input type="number" value="1" max="3" min="1" id="">
+                            <h4 id="modal-product"></h4>
+                            <h3 class="modal-title fs-5 mb-3" >$<span id="staticBackdropLabel"></span></h3>
+                            <div class="box-selec">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Añadir al carrito</button>
+                        <button type="button" class="btn btn-secondary cerrar-modal" data-bs-dismiss="modal" >Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btn-añadir" data-bs-dismiss="modal">Añadir al carrito</button>
                     </div>
                 </div>
             </div>
