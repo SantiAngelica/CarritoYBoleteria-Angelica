@@ -11,98 +11,98 @@ const ArrProductos = [
         nombre: "Camiseta alternativa",
         precio: 20000,
         tipo: "remera",
-        src: "../media/remsuplente.webp"
+        src: "../media/remsuplente.png"
     },
     {
         id: 2003,
         nombre: "Short Azul",
         precio: 10000,
         tipo: "pantalon",
-        src: "../media/shortazul.jpg"
+        src: "../media/shortazul.png"
     },
     {
         id: 2004,
         nombre: "Buzo entrenamiento",
         precio: 22000,
         tipo: "buzo",
-        src: "../media/buzoazul.jpg"
+        src: "../media/buzoazul.png"
     },
     {
         id: 2005,
         nombre: "Camperon Azul",
         precio: 50000,
         tipo: "buzo",
-        src: "../media/camperonazul.jpg"
+        src: "../media/camperonazul.png"
     },
     {
         id: 2006,
         nombre: "Visera 89",
         precio: 5000,
         tipo: "accesorios",
-        src: "../media/gorra89.jpg"
+        src: "../media/gorra89.png"
     },
     {
         id: 2007,
         nombre: "Yerbera y azucarera",
         precio: 4700,
         tipo: "otro",
-        src: "../media/yerbazuc.webp"
+        src: "../media/yerbazuc.png"
     },
     {
         id: 2008,
         nombre: "Pantalon azul",
         precio: 15000,
         tipo: "pantalon",
-        src: "../media/pantalonazuloscuro.jpg"
+        src: "../media/pantalonazuloscuro.png"
     },
     {
         id: 2009,
         nombre: "Pantalon celeste",
         precio: 15000,
         tipo: "pantalon",
-        src: "../media/pantalonazul.jpg"
+        src: "../media/pantalonazul.png"
     },
     {
         id: 2010,
         nombre: "Remera entrenamiento",
         precio: 18000,
         tipo: "remera",
-        src: "../media/remeraentrenamiento.webp"
+        src: "../media/remeraentrenamiento.png"
     },
     {
         id: 2011,
         nombre: "Remera arquero rosa",
         precio: 20000,
         tipo: "remera",
-        src: "../media/remeraarquerorosa.jpg"
+        src: "../media/remeraarquerorosa.png"
     },
     {
         id: 2012,
         nombre: "Short titular",
         precio: 12000,
         tipo: "pantalon",
-        src: "../media/shortitular.jpg"
+        src: "../media/shortitular.png"
     },
     {
         id: 2013,
         nombre: "Short suplente",
         precio: 12000,
         tipo: "pantalon",
-        src: "../media/shortsuplente.jpg"
+        src: "../media/shortsuplente.png"
     },
     {
         id: 2014,
         nombre: "Visera blanca",
         precio: 5000,
         tipo: "accesorios",
-        src: "../media/viserablanca.jpg"
+        src: "../media/viserablanca.png"
     },
     {
         id: 2015,
         nombre: "Piluso amarillo",
         precio: 3000,
         tipo: "accesorios",
-        src: "../media/pilusoamarillo.jpg"
+        src: "../media/pilusoamarillo.png"
     },
 ]
 

@@ -9,6 +9,12 @@ const modalAprobed = document.getElementById("aprobed")
 const alerta = document.querySelector(".alerta")
 let id
 let idBoton = 3000
+const plus = document.querySelector(".plus")
+const minus = document.querySelector(".minus")
+const num = document.querySelector(".num")
+let sumador = 1;
+
+
 
 
 //Crear botones de entradas
@@ -40,11 +46,7 @@ function CrearEntrada(entradas) {
     })
 }
 
-
-
 CrearEntrada(ArrEntradas)
-
-
 
 
 //CHEQUEAR SOCIO, CANTIDAD Y MOSTRAR
@@ -58,7 +60,6 @@ formModal.addEventListener('submit', (evt) => {
     modalPrecio.innerText = `$${objActual.precio * sumador}`
 
 })
-
 
 
 //CERRAMOS MODAL Y REINICIAMOS
@@ -83,7 +84,7 @@ añadirentrada.addEventListener('click', () => {
     AgregarAlCarrito(
         {
             nombre: modalNombre.innerText,
-            precio: modalPrecio.innerText,
+            precio: Number(modalPrecio.innerText) * sumador,
             cantidad: modalCant.innerText,
             src: "../media/ticket.jpg"
         }
@@ -93,4 +94,17 @@ añadirentrada.addEventListener('click', () => {
         modalCant.innerText = ""
         modalNombre.innerText = ""
         modalPrecio.innerText = ""
+})
+
+
+
+//SELECTOR DE CANTIDAD
+plus.addEventListener('click', () => {
+    sumador < 3 && (sumador += 1)
+    num.innerText = `0${sumador}`
+})
+
+minus.addEventListener('click', () => {
+    sumador > 1 && (sumador -= 1)
+    num.innerText = `0${sumador}`
 })

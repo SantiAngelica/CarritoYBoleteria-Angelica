@@ -207,3 +207,80 @@ header img{
     padding-right: 10px;
     border-left: 1px solid black;
 }
+.carrito{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    &:hover{
+        background-color: yellow;
+    }
+}
+.carritoActive{
+    background-color: yellow;
+}
+#boxcarrito{
+    margin-top: 100px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img-card-carrito{
+    height: 180px;
+}
+.cardCarrito{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 800px;
+    padding: 20px;
+    border-radius: 15px;
+}
+.figure-card-carrito{
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+}
+.botonBorrar{
+    margin-left: 80px;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    border: none;
+}
+.contenido-card-carrito{
+    margin: 20px 0px 0px 20px;
+    width: 400px;
+}
+.title-card-carrito{
+    margin-bottom: 5px;
+    font-size: 1.6rem;
+}
+.cantidad-card-carrito{
+    font-size: 1.3rem;
+}
+.text-card-carrito{
+    font-size: 1.4rem;
+    font-weight: 500 ;
+}
+.mainprod{
+    background-color: rgba(255, 255, 255, 0.830);
+    padding: 60px;
+}
+#boxcarritotitulo{
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+}
+.textocarrito{
+    margin: 0;
+    color: black;
+    font-size: 1.8rem;
+}
