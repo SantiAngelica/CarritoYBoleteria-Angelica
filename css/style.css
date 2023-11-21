@@ -61,7 +61,7 @@ header img{
     flex-direction: column;
     align-items: center;
     height: fit-content;
-    background-color: rgba(255, 255, 255, 0.815);
+    background-color: rgb(255, 255, 255);
 }
 .card figure{
     height: fit-content;
@@ -228,12 +228,12 @@ header img{
     align-items: center;
 }
 .img-card-carrito{
-    height: 180px;
+    height: 130px;
 }
 .cardCarrito{
     display: flex;
     background-color: rgb(255, 255, 255);
-    width: 800px;
+    width: 700px;
     padding: 20px;
     border-radius: 15px;
 }
@@ -242,12 +242,11 @@ header img{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 220px;
 }
 .botonBorrar{
     margin-left: 80px;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     background-color: transparent;
     border: none;
 }
@@ -257,14 +256,17 @@ header img{
 }
 .title-card-carrito{
     margin-bottom: 5px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    color: black;
 }
 .cantidad-card-carrito{
-    font-size: 1.3rem;
+    font-size: 1rem;
+    color: black;
 }
 .text-card-carrito{
-    font-size: 1.4rem;
-    font-weight: 500 ;
+    font-size: 1rem;
+    font-weight: 600 ;
+    color: black;
 }
 .mainprod{
     background-color: rgba(255, 255, 255, 0.830);
@@ -272,15 +274,56 @@ header img{
 }
 #boxcarritotitulo{
     display: flex;
-    background-color: white;
+    background-color: rgba(255, 255, 255);
     align-items: center;
     justify-content: space-between;
+    width: 500px;
     margin-top: 50px;
     border-radius: 15px;
-    padding: 10px 20px 10px 20px;
+    padding: 15px 25px 15px 25px;
 }
 .textocarrito{
     margin: 0;
     color: black;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+}
+.titulohistorial{
+    background-color: rgba(255, 255, 255);
+    color: black;
+    width: fit-content;
+    padding: 20px 30px;
+    border-radius: 20px;
+}
+#historialentradas{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.cardHistorial{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    width: 600px;
+    border-radius: 15px;
+}
+.figure-card-historial{
+    margin-bottom: 0;
+    margin-right: 12px;
+}
+.contenido-card-historial{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.img-ticket{
+    height: 100px;
+}
+.box-contenido-historial{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.box-contenido-historial p{
+    font-size: .8rem;
+    color: rgba(0, 0, 0, 0.616);
 }
