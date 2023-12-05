@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
@@ -12,7 +15,7 @@
     <script src="../js/app.js" defer></script>
 </head>
 
-<body >
+<body>
     <header>
         <a href="../index.html"><img src="../media/logo.png" alt=""></a>
         <ul class="nav">
@@ -26,27 +29,22 @@
                 <a class="nav-link" href="contact.html">Asociate</a>
             </li>
             <li class="nav-item">
-                <a href="#boxcarrito" class="nav-link carrito"> &#128722 </a>
+                <a href="/html/carrito.html" class="nav-link carrito"> &#128722 </a>
             </li>
         </ul>
     </header>
-    <main >
+    <main>
         <section id="boxprod">
 
         </section>
-        <section id="boxcarritotitulo" class="container">
-            <h1 id="titulocarrito" class="textocarrito"></h1>
-            <h2 id="totalcarrito" class="textocarrito"></h2>
-        </section>
-        <section id="boxcarrito" class="container">
-
-        </section>
+        
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="btn-close cerrar-modal" data-bs-dismiss="modal" aria-label="Close" ></button>
+                        <button type="button" class="btn-close cerrar-modal" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <figure>
@@ -54,7 +52,7 @@
                         </figure>
                         <div class="modal-contain">
                             <h4 id="modal-product"></h4>
-                            <h3 class="modal-title fs-5 mb-3" >$<span id="staticBackdropLabel"></span></h3>
+                            <h3 class="modal-title fs-5 mb-3">$<span id="staticBackdropLabel"></span></h3>
                             <div class="box-selec">
                                 <span class="minus">-</span>
                                 <span class="num">01</span>
@@ -63,12 +61,26 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary cerrar-modal" data-bs-dismiss="modal" >Cerrar</button>
-                        <button type="button" class="btn btn-primary" id="btn-añadir" data-bs-dismiss="modal">Añadir al carrito</button>
+                        <button type="button" class="btn btn-secondary cerrar-modal"
+                            data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btn-añadir" data-bs-dismiss="modal">Añadir al
+                            carrito</button>
                     </div>
                 </div>
             </div>
         </div>
+        <section id="boxcarritotitulo" class="container">
+            <h1 id="titulocarrito" class="textocarrito"></h1>
+            <div class="caja">
+                <button id="botonBorrarCarrito">
+                    <img src="../media/papelera.png" alt="">
+                </button>
+                <h2 id="totalcarrito" class="textocarrito"></h2>
+            </div>
+        </section>
+        <section id="boxcarrito" class="container">
+    
+        </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

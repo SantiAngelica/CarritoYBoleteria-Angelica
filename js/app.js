@@ -13,19 +13,20 @@ const boxcarrito = document.getElementById("boxcarrito")
 const tituloCarrito = document.getElementById("titulocarrito")
 const totalCarrito = document.getElementById("totalcarrito")
 let precioFinal = 0
+const borrarCarrito = document.getElementById("botonBorrarCarrito")
 
 
 
 
 //CALCULAR Y ACTUALIZAR PRECIO FINAL DEL CARRITO
-function PrecioCarrito(){
+function PrecioCarrito() {
     const arr = JSON.parse(localStorage.getItem("carrito"))
     precioFinal = arr.reduce((acc, el) => acc + el.precio, 0)
-    if(precioFinal == 0){
+    if (precioFinal == 0) {
         tituloCarrito.innerText = "Carrito vacio"
         totalCarrito.innerText = `$${precioFinal}`
     }
-    else{
+    else {
         tituloCarrito.innerText = "Carrito"
         totalCarrito.innerText = `$${precioFinal}`
     }
@@ -96,7 +97,7 @@ function EliminarDelCarrito(elemento) {
     const nuevoArray = arr.filter(producto => producto.id != elemento.id)
     localStorage.setItem("carrito", JSON.stringify(nuevoArray))
     PrecioCarrito()
-   
+
 }
 
 
@@ -117,6 +118,13 @@ function AgregarAlCarrito(producto) {
     }
     MostrarCarrito(producto, true)
     PrecioCarrito()
+    Toastify({
+        className: "alertaCarrito",
+        text: `${producto.nombre} x${producto.cantidad} - $${producto.precio}`,
+        destination: `#${producto.id}`,
+        close: true,
+        avatar: `${producto.src}`
+    }).showToast()
 }
 
 
@@ -139,7 +147,8 @@ function CrearCard(productos) {
             </button>       
         </div>
          `
-        container.appendChild(nuevoProd); const boxCarrito = document.getElementById("boxcarrito")
+        container.appendChild(nuevoProd); 
+        const boxCarrito = document.getElementById("boxcarrito")
         //MOSTRAR MODAL
         const boton = nuevoProd.querySelector(".btn")
         boton.addEventListener('click', () => {
@@ -155,11 +164,40 @@ function CrearCard(productos) {
 //INICIALIZAR
 CrearCard(ArrProductos)
 const ArrMostrar = JSON.parse(localStorage.getItem("carrito"))
-if(ArrMostrar){
+if (ArrMostrar) {
     MostrarCarrito(ArrMostrar, false)
     PrecioCarrito()
 }
 
+
+
+
+//Borrar carrito
+borrarCarrito.addEventListener('click', () => {
+    if (precioFinal > 0) {
+        Swal.fire({
+            title: "ESPERA!",
+            text: "¿Desea borrar el carrito?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, Borralo!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Hecho!",
+                    text: "Su carrito a sido borrado.",
+                    icon: "success"
+                });
+                boxcarrito.innerHTML = ""
+                const nuevoArray = []
+                localStorage.setItem("carrito", JSON.stringify(nuevoArray))
+                PrecioCarrito()
+            }
+        });
+    }
+})
 
 
 

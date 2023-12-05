@@ -282,6 +282,17 @@ header img{
     border-radius: 15px;
     padding: 15px 25px 15px 25px;
 }
+#boxcarritotitulo button{
+    border: none;
+    background-color: transparent;
+}
+#boxcarritotitulo img{
+    height: 30px;
+    margin-right: 20px;
+}
+.caja{
+    display: flex;
+}
 .textocarrito{
     margin: 0;
     color: black;
@@ -326,4 +337,12 @@ header img{
 .box-contenido-historial p{
     font-size: .8rem;
     color: rgba(0, 0, 0, 0.616);
+}
+.alertaCarrito{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.alertaCarrito img{
+    width: 60px;
+    height: auto;
 }
