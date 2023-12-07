@@ -162,6 +162,7 @@ header img{
     align-items: center;
     justify-content: center;
 }
+
 .cardEntradas{
     height: 60px;
     width: 500px;
@@ -207,9 +208,12 @@ header img{
     padding-right: 10px;
     border-left: 1px solid black;
 }
+#containerCarrito{
+    margin-top: 50px;
+}
 .carrito{
-    height: 50px;
-    width: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,6 +221,19 @@ header img{
     &:hover{
         background-color: yellow;
     }
+}
+.contadorCarrito{
+    background-color: rgba(0, 38, 255);
+    border-radius: 100%;
+    display: inline-block;
+    width: 20px;
+    aspect-ratio: 1;
+    text-align: center;
+    line-height: 20px;
+    position: absolute;
+    top: 35px;
+    right: 15px;
+
 }
 .carritoActive{
     background-color: yellow;
@@ -273,12 +290,12 @@ header img{
     padding: 60px;
 }
 #boxcarritotitulo{
+    margin-right: 30px;
     display: flex;
     background-color: rgba(255, 255, 255);
     align-items: center;
     justify-content: space-between;
     width: 500px;
-    margin-top: 50px;
     border-radius: 15px;
     padding: 15px 25px 15px 25px;
 }
@@ -345,4 +362,26 @@ header img{
 .alertaCarrito img{
     width: 60px;
     height: auto;
+}
+.boxTitulo{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#pagar{
+    padding: 15px 25px 15px 25px;
+    border-radius: 15px;
+}
+#pagar h2{
+    font-size: 1.2rem;
+    color: white;
+}
+.rojo{
+    border: 2px solid white;
+    cursor:default;
+}
+.verde{
+    background-color: rgb(37, 236, 37);
+    cursor: pointer;
 }

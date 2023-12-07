@@ -29,7 +29,7 @@ function CardHistorial(entrada, dato) {
                 nuevaCard.classList.add("mb-5")
                 nuevaCard.innerHTML = `
                 <figure class="figure-card-historial">
-                    <img src="../media/ticket.png" class="img-ticket" alt="">
+                    <img src="media/ticket.png" class="img-ticket" alt="">
                 </figure>
                 <div class="contenido-card-historial">
                     <div class="box-contenido-historial mb-0">

@@ -8,97 +8,72 @@ const plus = document.querySelector(".plus")
 const minus = document.querySelector(".minus")
 const num = document.querySelector(".num")
 let sumador = 1;
-const ArrCarrito = []
-const boxcarrito = document.getElementById("boxcarrito")
-const tituloCarrito = document.getElementById("titulocarrito")
-const totalCarrito = document.getElementById("totalcarrito")
-let precioFinal = 0
-const borrarCarrito = document.getElementById("botonBorrarCarrito")
 
 
 
 
-//CALCULAR Y ACTUALIZAR PRECIO FINAL DEL CARRITO
-function PrecioCarrito() {
-    const arr = JSON.parse(localStorage.getItem("carrito"))
-    precioFinal = arr.reduce((acc, el) => acc + el.precio, 0)
-    if (precioFinal == 0) {
-        tituloCarrito.innerText = "Carrito vacio"
-        totalCarrito.innerText = `$${precioFinal}`
-    }
-    else {
-        tituloCarrito.innerText = "Carrito"
-        totalCarrito.innerText = `$${precioFinal}`
-    }
-}
+
+
 
 
 
 
 //MOSTRAR CARRITO
-function MostrarCarrito(objeto, dato) {
-    if (!dato) {
-        objeto.forEach(objeto => {
-            let NuevaCard = document.createElement("div")
-            NuevaCard.classList.add("cardCarrito")
-            NuevaCard.classList.add("container")
-            NuevaCard.setAttribute("id", objeto.id)
-            NuevaCard.classList.add("mb-5")
-            NuevaCard.innerHTML = `
-            <figure class="figure-card-carrito">
-                <img src="${objeto.src}" class="img-card-carrito" alt="">
-            </figure>
-            <div class="contenido-card-carrito">
-                <h5 class="title-card-carrito">${objeto.nombre}</h5>
-                <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
-                <p class="text-card-carrito">$${objeto.precio}</p>      
-            </div>
-            <button class="botonBorrar" id="${objeto.id}">&#10060</button>
-            `
-            boxcarrito.appendChild(NuevaCard)
-            const borrar = NuevaCard.querySelector(".botonBorrar")
-            borrar.addEventListener('click', () => {
-                EliminarDelCarrito(borrar)
-            })
-        })
-    }
-    else {
-        let NuevaCard = document.createElement("div")
-        NuevaCard.classList.add("cardCarrito")
-        NuevaCard.setAttribute("id", objeto.id)
-        NuevaCard.classList.add("container")
-        NuevaCard.classList.add("mb-5")
-        NuevaCard.innerHTML = `
-            <figure class="figure-card-carrito">
-                <img src="${objeto.src}" class="img-card-carrito" alt="">
-            </figure>
-            <div class="contenido-card-carrito">
-                <h5 class="title-card-carrito">${objeto.nombre}</h5>
-                <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
-                <p class="text-card-carrito">$${objeto.precio}</p>      
-            </div>
-            <button class="botonBorrar" id="${objeto.id}">&#10060</button>
-            `
-        boxcarrito.appendChild(NuevaCard)
-        const borrar = NuevaCard.querySelector(".botonBorrar")
-        borrar.addEventListener('click', () => {
-            EliminarDelCarrito(borrar)
-        })
-    }
-}
+// function MostrarCarrito(objeto, dato) {
+//     if (!dato) {
+//         objeto.forEach(objeto => {
+//             let NuevaCard = document.createElement("div")
+//             NuevaCard.classList.add("cardCarrito")
+//             NuevaCard.classList.add("container")
+//             NuevaCard.setAttribute("id", objeto.id)
+//             NuevaCard.classList.add("mb-5")
+//             NuevaCard.innerHTML = `
+//             <figure class="figure-card-carrito">
+//                 <img src="${objeto.src}" class="img-card-carrito" alt="">
+//             </figure>
+//             <div class="contenido-card-carrito">
+//                 <h5 class="title-card-carrito">${objeto.nombre}</h5>
+//                 <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
+//                 <p class="text-card-carrito">$${objeto.precio}</p>      
+//             </div>
+//             <button class="botonBorrar" id="${objeto.id}">&#10060</button>
+//             `
+//             boxcarrito.appendChild(NuevaCard)
+//             const borrar = NuevaCard.querySelector(".botonBorrar")
+//             borrar.addEventListener('click', () => {
+//                 EliminarDelCarrito(borrar)
+//             })
+//         })
+//     }
+//     else {
+//         let NuevaCard = document.createElement("div")
+//         NuevaCard.classList.add("cardCarrito")
+//         NuevaCard.setAttribute("id", objeto.id)
+//         NuevaCard.classList.add("container")
+//         NuevaCard.classList.add("mb-5")
+//         NuevaCard.innerHTML = `
+//             <figure class="figure-card-carrito">
+//                 <img src="${objeto.src}" class="img-card-carrito" alt="">
+//             </figure>
+//             <div class="contenido-card-carrito">
+//                 <h5 class="title-card-carrito">${objeto.nombre}</h5>
+//                 <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
+//                 <p class="text-card-carrito">$${objeto.precio}</p>      
+//             </div>
+//             <button class="botonBorrar" id="${objeto.id}">&#10060</button>
+//             `
+//         boxcarrito.appendChild(NuevaCard)
+//         const borrar = NuevaCard.querySelector(".botonBorrar")
+//         borrar.addEventListener('click', () => {
+//             EliminarDelCarrito(borrar)
+//         })
+//     }
+// }
 
 
 
 
-//BORRAR ELEMENTO DEL CARRITO
-function EliminarDelCarrito(elemento) {
-    boxcarrito.removeChild(elemento.parentNode)
-    const arr = JSON.parse(localStorage.getItem("carrito"))
-    const nuevoArray = arr.filter(producto => producto.id != elemento.id)
-    localStorage.setItem("carrito", JSON.stringify(nuevoArray))
-    PrecioCarrito()
 
-}
 
 
 
@@ -116,14 +91,13 @@ function AgregarAlCarrito(producto) {
         NuevoArr.push(producto)
         localStorage.setItem("carrito", JSON.stringify(NuevoArr))
     }
-    MostrarCarrito(producto, true)
-    PrecioCarrito()
     Toastify({
         className: "alertaCarrito",
         text: `${producto.nombre} x${producto.cantidad} - $${producto.precio}`,
-        destination: `#${producto.id}`,
+        destination: "carrito.html",
         close: true,
-        avatar: `${producto.src}`
+        avatar: `${producto.src}`,
+        gravity: "bottom"
     }).showToast()
 }
 
@@ -163,41 +137,12 @@ function CrearCard(productos) {
 
 //INICIALIZAR
 CrearCard(ArrProductos)
-const ArrMostrar = JSON.parse(localStorage.getItem("carrito"))
-if (ArrMostrar) {
-    MostrarCarrito(ArrMostrar, false)
-    PrecioCarrito()
-}
 
 
 
 
-//Borrar carrito
-borrarCarrito.addEventListener('click', () => {
-    if (precioFinal > 0) {
-        Swal.fire({
-            title: "ESPERA!",
-            text: "¿Desea borrar el carrito?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Si, Borralo!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Hecho!",
-                    text: "Su carrito a sido borrado.",
-                    icon: "success"
-                });
-                boxcarrito.innerHTML = ""
-                const nuevoArray = []
-                localStorage.setItem("carrito", JSON.stringify(nuevoArray))
-                PrecioCarrito()
-            }
-        });
-    }
-})
+
+
 
 
 
@@ -211,6 +156,7 @@ añadir.addEventListener('click', () => {
             src: img.src
         }
     )
+    ActualizarContador()
     sumador = 1
     num.innerText = `0${sumador}`
 })
