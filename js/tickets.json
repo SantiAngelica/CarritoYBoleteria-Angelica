@@ -3,24 +3,20 @@
         "id": "3001",
         "nombre": "Platea Cordiviola",
         "precio": 6600
-        
     },
     {
         "id": "3002",
         "nombre": "Platea Regatas",
         "precio": 5900
-    
     },
     {
         "id": "3003",
         "nombre": "Popular Genova",
         "precio": 0
-        
     },
     {
         "id": "3004",
         "nombre": "Popular Regatas",
         "precio": 0
-       
     }
 ]
