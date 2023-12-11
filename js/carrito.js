@@ -50,7 +50,7 @@ function MostrarCarrito(productos) {
                  </figure>
                  <div class="contenido-card-carrito">
                      <h5 class="title-card-carrito">${objeto.nombre}</h5>
-                    <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
+                     <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
                      <p class="text-card-carrito">$${objeto.precio}</p>      
                  </div>
                  <button class="botonBorrar" id="${objeto.id}">&#10060</button>

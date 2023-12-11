@@ -14,6 +14,11 @@ const minus = document.querySelector(".minus")
 const num = document.querySelector(".num")
 let sumador = 1;
 const boxHistorial = document.getElementById("historialentradas")
+const dniAdvert = document.getElementById("dniAdvert")
+const socioAdvert = document.getElementById("socioAdvert")
+const inputSocio = document.getElementById("socio-check")
+    const inputDni = document.getElementById("dni-check")
+
 const hora = new Date()
 
 //CREAR CARD EN HISTORIAL DE ENTRADAS
@@ -92,7 +97,6 @@ function CrearEntrada(entradas) {
         const botones = nuevaEntrada.querySelector(".botonentradas")
         botones.addEventListener('click', () => {
             id = botones.id
-            console.log(id)
         })
 
     })
@@ -100,9 +104,9 @@ function CrearEntrada(entradas) {
 
 
 
-function AñadirEntradaAlCarrito(entrada) {
+function AñadirEntradaAlHistorial(entrada) {
     const arr = JSON.parse(localStorage.getItem("entradas"))
-    entrada.fecha = 
+    entrada.fecha =
         `${hora.getDate()}/${hora.getMonth() + 1}/${hora.getFullYear()} - ${hora.getHours()}:${hora.getMinutes()}:${hora.getSeconds()} `
 
     if (!arr) {
@@ -120,24 +124,66 @@ function AñadirEntradaAlCarrito(entrada) {
 }
 
 
-CrearEntrada(ArrEntradas)
-const EntradasMostrar = JSON.parse(localStorage.getItem("entradas"))
-if (EntradasMostrar) {
-    CardHistorial(EntradasMostrar, false)
+const pedirTickets = async () => {
+    const respuesta = await fetch('../js/tickets.json')
+    const data = await respuesta.json()
+    CrearEntrada(data)
+}
+
+pedirTickets()
+
+const arrHistorial = JSON.parse(localStorage.getItem("entradas"))
+if (arrHistorial) {
+    CardHistorial(arrHistorial, false)
 }
 
 
 
-//CHEQUEAR SOCIO, CANTIDAD Y MOSTRAR
+//cheq casillas
+function checkCasillas(socio, dni) {
+    socioAdvert.innerText = !socio ? 'Llenar casilla' : '';
+    dniAdvert.innerText = !dni ? 'Llenar casilla' : '';
+    if (socio && dni) {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+
+
+
+//Formulario socio
 formModal.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    let objActual = ArrEntradas.find(x => x.id === id)
-    alerta.classList.add("azul")
-    alerta.classList.add("alerta")
-    modalAprobed.innerText = "APROBADO!"
-    modalCant.innerText = `x${sumador}`
-    modalNombre.innerText = objActual.nombre
-    modalPrecio.innerText = `$${objActual.precio * sumador}`
+    if (checkCasillas(Number(inputDni.value), inputSocio.value)) {
+        const arrSocios = JSON.parse(localStorage.getItem("socios"))
+        console.log(arrSocios)
+        const boolSocio = arrSocios.some(x => x.id == inputSocio.value)
+        const boolDni = arrSocios.some(x => x.dni == inputDni.value)
+        console.log(boolDni, boolSocio)
+        if (boolDni && boolSocio) {
+            fetch('../js/tickets.json')
+                .then((res) => res.json())
+                .then((data) => {
+                    let objActual = data.find(x => x.id === id)
+                    alerta.classList.add("azul")
+                    alerta.classList.add("alerta")
+                    modalAprobed.innerText = "APROBADO!"
+                    modalCant.innerText = `x${sumador}`
+                    modalNombre.innerText = objActual.nombre
+                    modalPrecio.innerText = `$${objActual.precio * sumador}`
+                    dniAdvert.innerText = ''
+                    socioAdvert.innerText = ''
+                })
+            añadirentrada.classList.remove("desactivado")
+        }
+        else {
+            dniAdvert.innerText = 'Credenciales incorrectas'
+            socioAdvert.innerText = 'Credenciales incorrectas'
+        }
+    }
 })
 
 
@@ -153,6 +199,10 @@ cerrarModalEntradas.forEach(x => {
         modalCant.innerText = ""
         modalNombre.innerText = ""
         modalPrecio.innerText = ""
+        dniAdvert.innerText = ''
+        socioAdvert.innerText = ''
+        inputDni.value = ''
+        inputSocio.value = ''
     })
 })
 
@@ -161,22 +211,30 @@ cerrarModalEntradas.forEach(x => {
 
 //añadir entrada al carrito
 añadirentrada.addEventListener('click', () => {
-    const objCrear = ArrEntradas.find(x => x.nombre === modalNombre.innerText)
-    AñadirEntradaAlCarrito(
-        {
-            nombre: objCrear.nombre,
-            precio: objCrear.precio,
-            cantidad: sumador
-        }
-    )
+    fetch('../js/tickets.json')
+        .then((res) => res.json())
+        .then((data) => {
+            const objCrear = data.find(x => x.id === id)
+            AñadirEntradaAlHistorial(
+                {
+                    nombre: objCrear.nombre,
+                    precio: objCrear.precio,
+                    cantidad: sumador
+                }
+            )
+            sumador = 1
+        })
 
-    sumador = 1
     alerta.removeAttribute("class", "azul")
     num.innerText = `0${sumador}`
     modalAprobed.innerText = ""
     modalCant.innerText = ""
     modalNombre.innerText = ""
     modalPrecio.innerText = ""
+    dniAdvert.innerText = ''
+    socioAdvert.innerText = ''
+    inputDni.value = ''
+    inputSocio.value = ''
 })
 
 

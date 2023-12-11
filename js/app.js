@@ -18,64 +18,6 @@ let sumador = 1;
 
 
 
-//MOSTRAR CARRITO
-// function MostrarCarrito(objeto, dato) {
-//     if (!dato) {
-//         objeto.forEach(objeto => {
-//             let NuevaCard = document.createElement("div")
-//             NuevaCard.classList.add("cardCarrito")
-//             NuevaCard.classList.add("container")
-//             NuevaCard.setAttribute("id", objeto.id)
-//             NuevaCard.classList.add("mb-5")
-//             NuevaCard.innerHTML = `
-//             <figure class="figure-card-carrito">
-//                 <img src="${objeto.src}" class="img-card-carrito" alt="">
-//             </figure>
-//             <div class="contenido-card-carrito">
-//                 <h5 class="title-card-carrito">${objeto.nombre}</h5>
-//                 <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
-//                 <p class="text-card-carrito">$${objeto.precio}</p>      
-//             </div>
-//             <button class="botonBorrar" id="${objeto.id}">&#10060</button>
-//             `
-//             boxcarrito.appendChild(NuevaCard)
-//             const borrar = NuevaCard.querySelector(".botonBorrar")
-//             borrar.addEventListener('click', () => {
-//                 EliminarDelCarrito(borrar)
-//             })
-//         })
-//     }
-//     else {
-//         let NuevaCard = document.createElement("div")
-//         NuevaCard.classList.add("cardCarrito")
-//         NuevaCard.setAttribute("id", objeto.id)
-//         NuevaCard.classList.add("container")
-//         NuevaCard.classList.add("mb-5")
-//         NuevaCard.innerHTML = `
-//             <figure class="figure-card-carrito">
-//                 <img src="${objeto.src}" class="img-card-carrito" alt="">
-//             </figure>
-//             <div class="contenido-card-carrito">
-//                 <h5 class="title-card-carrito">${objeto.nombre}</h5>
-//                 <h4 class="cantidad-card-carrito">x${objeto.cantidad}<h4>
-//                 <p class="text-card-carrito">$${objeto.precio}</p>      
-//             </div>
-//             <button class="botonBorrar" id="${objeto.id}">&#10060</button>
-//             `
-//         boxcarrito.appendChild(NuevaCard)
-//         const borrar = NuevaCard.querySelector(".botonBorrar")
-//         borrar.addEventListener('click', () => {
-//             EliminarDelCarrito(borrar)
-//         })
-//     }
-// }
-
-
-
-
-
-
-
 
 //Agregar producto o entrada al carrito
 function AgregarAlCarrito(producto) {
@@ -135,9 +77,16 @@ function CrearCard(productos) {
 
 
 
-//INICIALIZAR
-CrearCard(ArrProductos)
 
+
+
+//INICIALIZAR
+const pedirCards = async () => {
+    const respuesta = await fetch('../js/productos.json')
+    const data = await respuesta.json()
+    CrearCard(data)
+}
+pedirCards()
 
 
 
