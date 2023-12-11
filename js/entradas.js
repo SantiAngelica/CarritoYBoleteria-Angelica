@@ -125,7 +125,7 @@ function AñadirEntradaAlHistorial(entrada) {
 
 
 const pedirTickets = async () => {
-    const respuesta = await fetch('../js/tickets.json')
+    const respuesta = await fetch('js/tickets.json')
     const data = await respuesta.json()
     CrearEntrada(data)
 }
@@ -164,7 +164,7 @@ formModal.addEventListener('submit', (evt) => {
         const boolDni = arrSocios.some(x => x.dni == inputDni.value)
         console.log(boolDni, boolSocio)
         if (boolDni && boolSocio) {
-            fetch('../js/tickets.json')
+            fetch('js/tickets.json')
                 .then((res) => res.json())
                 .then((data) => {
                     let objActual = data.find(x => x.id === id)
@@ -211,7 +211,7 @@ cerrarModalEntradas.forEach(x => {
 
 //añadir entrada al carrito
 añadirentrada.addEventListener('click', () => {
-    fetch('../js/tickets.json')
+    fetch('js/tickets.json')
         .then((res) => res.json())
         .then((data) => {
             const objCrear = data.find(x => x.id === id)
