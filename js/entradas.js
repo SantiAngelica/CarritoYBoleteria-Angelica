@@ -17,7 +17,7 @@ const boxHistorial = document.getElementById("historialentradas")
 const dniAdvert = document.getElementById("dniAdvert")
 const socioAdvert = document.getElementById("socioAdvert")
 const inputSocio = document.getElementById("socio-check")
-    const inputDni = document.getElementById("dni-check")
+const inputDni = document.getElementById("dni-check")
 
 const hora = new Date()
 
@@ -143,12 +143,8 @@ if (arrHistorial) {
 function checkCasillas(socio, dni) {
     socioAdvert.innerText = !socio ? 'Llenar casilla' : '';
     dniAdvert.innerText = !dni ? 'Llenar casilla' : '';
-    if (socio && dni) {
-        return true
-    }
-    else {
-        return false
-    }
+    return socio && dni;
+
 }
 
 
@@ -159,10 +155,12 @@ formModal.addEventListener('submit', (evt) => {
     evt.preventDefault()
     if (checkCasillas(Number(inputDni.value), inputSocio.value)) {
         const arrSocios = JSON.parse(localStorage.getItem("socios"))
-        console.log(arrSocios)
+        if(!arrSocios){
+            dniAdvert.innerText = 'Credenciales incorrectas'
+            socioAdvert.innerText = 'Credenciales incorrectas'
+        }
         const boolSocio = arrSocios.some(x => x.id == inputSocio.value)
         const boolDni = arrSocios.some(x => x.dni == inputDni.value)
-        console.log(boolDni, boolSocio)
         if (boolDni && boolSocio) {
             fetch('js/tickets.json')
                 .then((res) => res.json())
@@ -184,7 +182,8 @@ formModal.addEventListener('submit', (evt) => {
             socioAdvert.innerText = 'Credenciales incorrectas'
         }
     }
-})
+}
+)
 
 
 
